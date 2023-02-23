@@ -4,9 +4,80 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/bg_color"
+    android:padding="32dp"
     tools:context=".MainActivity">
 
+    <TextView
+        android:id="@+id/displayWinner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="32dp"
+        android:text="@string/display_winner"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+        app:layout_constraintBottom_toTopOf="@id/playField"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
     <LinearLayout
+        android:id="@+id/playerNames"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/playerNamePlayer1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:text="@string/player_name_player1"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+
+            <TextView
+                android:id="@+id/winsPlayer1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/wins_player1"
+                android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/playerNamePlayer2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:text="@string/player_name_player2"
+                android:textAlignment="textEnd"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+
+            <TextView
+                android:id="@+id/winsPlayer2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/wins_player2"
+                android:textAlignment="textEnd"
+                android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
+        </LinearLayout>
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/playField"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -15,6 +86,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
+        <!-- Row 1 -->
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
@@ -22,19 +94,25 @@
             <Button
                 android:id="@+id/btn1"
                 style="@style/field"
+                android:contentDescription="Button 1"
+                android:tag="1"
+                tools:ignore="DuplicateSpeakableTextCheck"
                 tools:text="X" />
 
             <Button
                 android:id="@+id/btn2"
                 style="@style/field"
+                android:tag="2"
                 tools:text="X" />
 
             <Button
                 android:id="@+id/btn3"
                 style="@style/field"
+                android:tag="3"
                 tools:text="X" />
         </LinearLayout>
 
+        <!-- Row 2 -->
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
@@ -42,19 +120,23 @@
             <Button
                 android:id="@+id/btn4"
                 style="@style/field"
+                android:tag="4"
                 tools:text="X" />
 
             <Button
                 android:id="@+id/btn5"
                 style="@style/field"
+                android:tag="5"
                 tools:text="X" />
 
             <Button
                 android:id="@+id/btn6"
                 style="@style/field"
+                android:tag="6"
                 tools:text="X" />
         </LinearLayout>
 
+        <!-- Row 3 -->
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
@@ -62,17 +144,55 @@
             <Button
                 android:id="@+id/btn7"
                 style="@style/field"
+                android:tag="7"
                 tools:text="X" />
 
             <Button
                 android:id="@+id/btn8"
                 style="@style/field"
+                android:tag="8"
                 tools:text="X" />
 
             <Button
                 android:id="@+id/btn9"
                 style="@style/field"
+                android:tag="9"
                 tools:text="X" />
         </LinearLayout>
+
+
     </LinearLayout>
+
+    <Button
+        android:id="@+id/buttonRestart"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="8dp"
+        android:text="@string/button_restart"
+        app:layout_constraintEnd_toStartOf="@+id/buttonResetStoredScores"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/playField" />
+
+    <Button
+        android:id="@+id/buttonResetStoredScores"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/button_reset_scores"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/buttonRestart"
+        app:layout_constraintTop_toTopOf="@+id/buttonRestart" />
+
+    <Button
+        android:id="@+id/buttonGoToSettings"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/button_goto_settings"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -3,6 +3,10 @@
     <style name="field">
         <item name="android:layout_width">90dp</item>
         <item name="android:layout_height">90dp</item>
-        <item name="android:layout_margin">5dp</item>
+        <item name="android:layout_marginStart">5dp</item>
+        <item name="android:layout_marginEnd">5dp</item>
+        <item name="android:textSize">40sp</item>
+        <item name="backgroundTint">@color/white</item>
+        <item name="android:textColor">@color/black</item>
     </style>
 </resources>

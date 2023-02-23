@@ -1,3 +1,14 @@
 <resources>
     <string name="app_name">CimdataTicTacToe</string>
+    <string name="button_restart">Restart Game</string>
+    <string name="display_winner">%s wins!</string>
+    <string name="player_name_player1">%s: X</string>
+    <string name="player_name_player2">%s: O</string>
+    <string name="wins_player1">%d wins</string>
+    <string name="wins_player2">%d wins</string>
+    <string name="button_reset_scores">Reset Scores</string>
+    <string name="button_goto_settings">Settings</string>
+    <string name="heading_playernames_update">Update player names</string>
+    <string name="button_update_playername">Save</string>
+    <string name="button_goto_main">Back to Game</string>
 </resources>
